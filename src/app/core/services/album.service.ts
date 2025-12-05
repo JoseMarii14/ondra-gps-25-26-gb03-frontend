@@ -70,7 +70,7 @@ export class AlbumService {
   constructor(
     private http: HttpClient,
     private favoritosService: FavoritosService
-  ) {}
+  ) { }
 
   // ===============================================================
   // API PÚBLICA
@@ -208,7 +208,7 @@ export class AlbumService {
       switchMap((isFavorite) => {
         return this.getAlbumTracks(albumId).pipe(
           switchMap((tracks) => {
-            const songIds = tracks.map(track => Number(track.id)).filter(id => !isNaN(id));
+            const songIds = tracks.map(track => Number(track.id)).filter(id => !Number.isNaN(id));
 
             if (isFavorite) {
               // Eliminar de favoritos (álbum y canciones)
