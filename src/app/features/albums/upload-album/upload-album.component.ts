@@ -274,7 +274,7 @@ export class UploadAlbumComponent implements OnInit {
 
     const albumDTO = {
       tituloAlbum: formValue.tituloAlbum,
-      idGenero: parseInt(formValue.idGenero),
+      idGenero: Number.parseInt(formValue.idGenero),
       precioAlbum: parseFloat(formValue.precioAlbum),
       urlPortada: this.coverUrl() || '',
       descripcion: formValue.descripcionAlbum || undefined
@@ -365,7 +365,7 @@ export class UploadAlbumComponent implements OnInit {
    * @returns Nombre del género o cadena vacía si no hay selección
    */
   getNombreGenero(): string {
-    const idGenero = parseInt(this.albumForm.value.idGenero);
+    const idGenero = Number.parseInt(this.albumForm.value.idGenero);
     return this.generos().find(g => g.idGenero === idGenero)?.nombreGenero || '';
   }
 
